@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: Client
+  security:
+    oauth2:
+      client:
+        provider:
+          my_authorization_server:
+            issuer-uri: http://127.0.0.1:7070
+        registration:
+          my_authorization_server:
+            client-id: client
+            client-name: Custom
+            client-secret: secret
+            provider: my_authorization_server
+            client-authentication-method: client_secret_basic
+            redirect-uri: http://localhost:8080/login/oauth2/code/my_authorization_server
+            scope[0]: openid
